@@ -2,7 +2,8 @@ using System;
 
 namespace StatlerWaldorfCorp.TeamService.Models
 {
-    public class Member {
+    public class Member
+    {
         public Guid ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -17,10 +18,10 @@ namespace StatlerWaldorfCorp.TeamService.Models
         public Member(string firstName, string lastName, Guid id) : this(id) {
             this.FirstName = firstName;
             this.LastName = lastName;
-        }        
+        }
 
         public override string ToString() {
             return this.LastName;
-        }        
+        }
     }
 }

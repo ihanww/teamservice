@@ -1,19 +1,17 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 
 namespace StatlerWaldorfCorp.TeamService
 {
     public class Program
     {
-        public static void Main(string[] args)
-        {
+        public static void Main(string[] args) {
             var config = new ConfigurationBuilder()
                 .AddCommandLine(args)
-            	.Build();
+                .Build();
 
-			Startup.Args = args;
+            Startup.Args = args;
 
             var host = new WebHostBuilder()
                 .UseKestrel()
@@ -21,7 +19,7 @@ namespace StatlerWaldorfCorp.TeamService
                 .UseConfiguration(config)
                 .Build();
 
-            host.Run();            
+            host.Run();
         }
     }
 }

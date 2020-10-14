@@ -1,42 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System;
 
 namespace StatlerWaldorfCorp.TeamService.Migrations
 {
     public partial class initial : Migration
     {
-        protected override void Up(MigrationBuilder migrationBuilder)
-        {
+        protected override void Up(MigrationBuilder migrationBuilder) {
             migrationBuilder.EnsurePostgresExtension("uuid-ossp");
             //migrationBuilder.CreatePostgresExtension("uuid-ossp");
 
             migrationBuilder.CreateTable(
                 name: "Teams",
-                columns: table => new
-                {
+                columns: table => new {
                     ID = table.Column<Guid>(nullable: false)
                         .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     Name = table.Column<string>(nullable: true)
                 },
-                constraints: table =>
-                {
+                constraints: table => {
                     table.PrimaryKey("PK_Teams", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Members",
-                columns: table => new
-                {
+                columns: table => new {
                     ID = table.Column<Guid>(nullable: false)
                         .Annotation("Npgsql:ValueGeneratedOnAdd", true),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     TeamID = table.Column<Guid>(nullable: true)
                 },
-                constraints: table =>
-                {
+                constraints: table => {
                     table.PrimaryKey("PK_Members", x => x.ID);
                     table.ForeignKey(
                         name: "FK_Members_Teams_TeamID",
@@ -52,8 +46,7 @@ namespace StatlerWaldorfCorp.TeamService.Migrations
                 column: "TeamID");
         }
 
-        protected override void Down(MigrationBuilder migrationBuilder)
-        {
+        protected override void Down(MigrationBuilder migrationBuilder) {
             //   migrationBuilder.DropPostgresExtension("uuid-ossp");
 
             migrationBuilder.DropTable(

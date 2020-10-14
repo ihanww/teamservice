@@ -1,6 +1,6 @@
+using StatlerWaldorfCorp.TeamService.Models;
 using System;
 using System.Threading.Tasks;
-using StatlerWaldorfCorp.TeamService.Models;
 
 namespace StatlerWaldorfCorp.TeamService.LocationClient
 {
